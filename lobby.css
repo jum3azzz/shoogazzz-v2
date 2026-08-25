@@ -1,0 +1,532 @@
+/* =========================================================
+   LOBBY LAYOUT
+========================================================= */
+
+#name-screen,
+#mode-screen,
+#join-screen,
+#waiting-screen,
+#result-screen {
+  display: grid;
+  place-items: center;
+
+  padding: 32px 20px;
+}
+
+/* =========================================================
+   LOBBY CARD
+========================================================= */
+
+.lobby-card {
+  width: min(480px, 100%);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 44px;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-large);
+
+  background: var(--glass);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow: var(--shadow-pop);
+
+  animation: lobby-enter 500ms ease both;
+}
+
+@keyframes lobby-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lobby-card > .brand-mark {
+  margin-bottom: 48px;
+}
+
+/* =========================================================
+   LOBBY HEADING
+========================================================= */
+
+.lobby-heading {
+  margin-bottom: 30px;
+}
+
+.lobby-heading .eyebrow {
+  margin-bottom: 13px;
+}
+
+.lobby-heading h1 {
+  font-size: clamp(1.9rem, 6vw, 2.9rem);
+
+  letter-spacing: -0.01em;
+}
+
+.lobby-heading p {
+  max-width: 400px;
+
+  margin-top: 14px;
+
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.game-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.game-form label {
+  color: var(--ink-muted);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.game-form input {
+  width: 100%;
+  height: 58px;
+
+  padding: 0 20px;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+
+  outline: none;
+
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.55);
+
+  box-shadow: var(--shadow-inset);
+
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.game-form input::placeholder {
+  color: rgba(22, 50, 79, 0.4);
+
+  font-weight: 500;
+}
+
+.game-form input:focus {
+  border-color: var(--cyan);
+
+  box-shadow:
+    0 0 0 4px rgba(56, 182, 224, 0.18),
+    var(--shadow-inset);
+}
+
+.game-form .primary-button {
+  margin-top: 14px;
+}
+
+/* =========================================================
+   MODE OPTIONS
+========================================================= */
+
+.mode-options {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.mode-button {
+  display: grid;
+
+  grid-template-columns: 50px 1fr 26px;
+
+  align-items: center;
+
+  gap: 15px;
+
+  width: 100%;
+  min-height: 88px;
+
+  padding: 15px 18px;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-medium);
+
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.42);
+
+  text-align: left;
+
+  box-shadow: var(--shadow-pop-sm);
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.mode-button:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255, 255, 255, 0.9);
+
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.mode-button:active {
+  transform: translateY(2px);
+
+  box-shadow: var(--shadow-inset);
+}
+
+.mode-icon {
+  display: grid;
+  place-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 16px;
+
+  color: #fff;
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-dark) 100%);
+
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  box-shadow: var(--shadow-pop-sm);
+}
+
+.mode-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.mode-content strong {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+}
+
+.mode-content small {
+  color: var(--ink-muted);
+
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.mode-arrow {
+  color: var(--ink-muted);
+
+  font-size: 1.1rem;
+
+  transition:
+    transform var(--transition),
+    color var(--transition);
+}
+
+.mode-button:hover .mode-arrow {
+  color: var(--cyan-dark);
+  transform: translateX(3px);
+}
+
+.mode-card .text-button {
+  align-self: center;
+
+  margin-top: 25px;
+}
+
+/* =========================================================
+   JOIN SCREEN
+========================================================= */
+
+#join-screen .lobby-card {
+  position: relative;
+}
+
+#join-screen .back-button {
+  margin-bottom: 38px;
+}
+
+.form-error {
+  margin-top: 12px;
+
+  color: var(--red);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+/* =========================================================
+   WAITING ROOM
+========================================================= */
+
+.waiting-card {
+  text-align: center;
+  align-items: center;
+}
+
+.waiting-card .brand-mark {
+  align-self: center;
+}
+
+.waiting-card .lobby-heading {
+  margin-bottom: 25px;
+}
+
+.waiting-card .lobby-heading h1 {
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+}
+
+.game-code-container {
+  width: 100%;
+
+  padding: 26px;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-medium);
+
+  background: rgba(255, 255, 255, 0.35);
+
+  box-shadow: var(--shadow-inset);
+}
+
+.game-code-label {
+  display: block;
+
+  color: var(--ink-muted);
+
+  font-size: 0.64rem;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.game-code {
+  margin: 12px 0 18px;
+
+  color: var(--navy);
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  line-height: 1;
+}
+
+.waiting-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 25px 0;
+
+  color: var(--ink-muted);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.status-indicator {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--yellow);
+
+  box-shadow: 0 0 0 5px rgba(240, 180, 41, 0.2);
+
+  animation: waiting-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes waiting-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   RESULT SCREEN
+========================================================= */
+
+.result-card {
+  width: min(480px, 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 48px 38px;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-large);
+
+  background: var(--glass);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  text-align: center;
+
+  box-shadow: var(--shadow-pop);
+}
+
+.result-symbol {
+  display: grid;
+  place-items: center;
+
+  width: 76px;
+  height: 76px;
+
+  margin-bottom: 25px;
+
+  border-radius: 26px;
+
+  color: #fff;
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-dark) 100%);
+
+  font-size: 2.1rem;
+  font-weight: 900;
+
+  box-shadow: var(--shadow-pop);
+}
+
+.result-card h1 {
+  margin-top: 10px;
+
+  font-size: clamp(2rem, 7vw, 3rem);
+
+  letter-spacing: -0.01em;
+}
+
+.result-card > p {
+  margin-top: 12px;
+}
+
+.result-character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+
+  width: 150px;
+
+  margin: 26px 0;
+
+  padding: 14px;
+
+  border-radius: var(--radius-medium);
+
+  background: rgba(255, 255, 255, 0.35);
+
+  box-shadow: var(--shadow-inset);
+}
+
+.result-character-portrait {
+  width: 96px;
+  height: 96px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.5);
+
+  box-shadow: var(--shadow-pop-sm);
+}
+
+.result-character-name {
+  color: var(--navy);
+
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.result-actions button {
+  width: 100%;
+}
+
+/* =========================================================
+   MOBILE LOBBY
+========================================================= */
+
+@media (max-width: 600px) {
+  #name-screen,
+  #mode-screen,
+  #join-screen,
+  #waiting-screen,
+  #result-screen {
+    padding: 18px;
+  }
+
+  .lobby-card {
+    padding: 30px 24px;
+    border-radius: 25px;
+  }
+
+  .lobby-card > .brand-mark {
+    margin-bottom: 40px;
+  }
+
+  .lobby-heading h1 {
+    font-size: 1.9rem;
+  }
+
+  .mode-button {
+    grid-template-columns: 44px 1fr 20px;
+    min-height: 78px;
+  }
+
+  .mode-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
